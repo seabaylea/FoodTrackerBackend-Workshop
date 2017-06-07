@@ -50,7 +50,7 @@ cd ~/KituraLab/Server
 ```
 2. Run Swift Server Generator:
 ```
-yo swift server
+yo swiftserver
 What's the name of your application? > FoodTracker
 Enter the name of the directory to contain the project: FoodTracker
 ```
