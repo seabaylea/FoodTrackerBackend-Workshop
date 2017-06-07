@@ -41,13 +41,8 @@ cd ~/FoodTrackerBackend-Workshop/Server
 2. Run Swift Server Generator:
 ```
 yo swiftserver
-<<<<<<< HEAD
 What's the name of your application? > FoodTrackerServer
 Enter the name of the directory to contain the project: FoodTrackerServer
-=======
-What's the name of your application? > FoodTracker
-Enter the name of the directory to contain the project: FoodTracker
->>>>>>> 51688d82c92248db42cfe70bde2a0d31cd0bf61d
 ```
 Select a type of project. Starter allows you to create general Basic, Web or Backend for Frontend project, including creating REST APIs, whereas a Create Read Update Delete (CRUD) project if designed to do data persistence. Select a CRUD application.
 ```
