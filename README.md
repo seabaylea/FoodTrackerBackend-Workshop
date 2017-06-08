@@ -25,8 +25,8 @@ cd ~/FoodTrackerBackend-Workshop
 ```
 cd ~/FoodTrackerBackend-Workshop/iOS/
 ```
-2. Open the Xcode Project  
-`open FoodTracker.xcodeproj`
+2. Open the Xcode Workspace  
+`open FoodTracker.xcworkspace`
 3. Run the project to ensure that its working
     1. Hit the build and run button
     2. Add a meal in the Simulator
