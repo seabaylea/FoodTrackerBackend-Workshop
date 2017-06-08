@@ -137,14 +137,10 @@ open FoodTracker.xcworkspace
 
 
 **Run the FoodTracker app with storage to the Kitura server**
-1. Make sure the Kitura server is running
-Either by running  
-`~/FoodTrackerBackend-Workshop/Server/FoodTrackerServer/.build/debug/FoodTrackerServer`  
-    or using the hosted instance in the IBM Cloud
-2. Open the Kitura monitoring dashboard (/swiftmetrics-dash)
-3. Launch the FoodTracker app and add or remove a Meal entry
-4. View the monitoring panel to see the responsiveness of the API call
-5. Check the data has been persisted by the Kitura server
+1. Make sure the Kitura server is still running and you have the Kitura monitoring dashboard open in your browser (http://localhost:8080/swiftmetrics-dash)
+2. Build and run the FoodTracker app in the iOS simulator and add or remove a Meal entry
+3. View the monitoring panel to see the responsiveness of the API call
+4. Check the data has been persisted by the Kitura server
     1. Go the to REST API explorer:    http://localhost:8080/explorer/
     2. From the Kitura REST API explorer select “GET /ServerMeals”
     3. Press the “Try it out!” button
