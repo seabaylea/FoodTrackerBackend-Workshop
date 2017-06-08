@@ -129,7 +129,7 @@ open FoodTracker.xcworkspace
 ```
 2. Edit MealTableViewController.swift
     1. Uncomment the following at the start of the saveMeals() function:
-```
+```swift
             for meal in meals {
                   saveToServer(meal: meal)
               }
