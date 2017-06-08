@@ -114,7 +114,7 @@ Enter an empty property name when done.
 6. Test the REST API is running correctly
     1. From the Kitura REST API explorer select “GET /ServerMeals”
     2. Press the “Try it out!” button
-    3. Check for an empty response body (“[]”) and a Response Code of 200
+    3. Check for an empty response body (“[]”) and a Response Code of 200. This tests that no meals have been saved to the server yet.
 
 
 **Update FoodTracker to call the FoodTrackerServer:**  
