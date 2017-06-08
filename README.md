@@ -128,7 +128,7 @@ cd ~/FoodTrackerBackend-Workshop/iOS/FoodTracker/
 open FoodTracker.xcworkspace
 ```
 2. Edit MealTableViewController.swift
-    1. Uncomment the following at the start of the sameMeals() function:
+    1. Uncomment the following at the start of the saveMeals() function:
 ```
             for meal in meals {
                   saveToServer(meal: meal)
