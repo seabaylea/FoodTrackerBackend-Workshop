@@ -100,6 +100,8 @@ Enter an empty property name when done.
 ? Default? (y/N) n
 ? Enter the property name:
 ```
+When you get to the final `Enter the property name:`, just tap Enter and your new model will be generated.
+
 4. Open and run the server project in Xcode
     1. Open the project in Xcode:
 `open FoodTrackerServer.xcodeproj`
