@@ -104,7 +104,7 @@ Enter an empty property name when done.
     1. Open the project in Xcode:
 `open FoodTrackerServer.xcodeproj`
     2. Edit the scheme and select a Run Executable of “FoodTrackerServer”
-    3. Run the project
+    3. Run the project, then Allow incoming network connections
 
 5. Check the FoodTrackerServer URLs are running:
     * Kitura Homepage: http://localhost:8080
