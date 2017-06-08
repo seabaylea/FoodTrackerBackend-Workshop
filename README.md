@@ -21,7 +21,7 @@ cd ~/FoodTrackerBackend-Workshop
 
 ## Getting Started
 **1. Run the Food Tracker App:**  
-1. Unzip the FoodTracker App (09_PersistData.zip) into a suitable directory:  
+1. Change into the iOS app directory:  
 ```
 cd ~/FoodTrackerBackend-Workshop/iOS/FoodTracker
 ```
