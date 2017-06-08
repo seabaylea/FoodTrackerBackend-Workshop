@@ -145,6 +145,8 @@ open FoodTracker.xcworkspace
     2. From the Kitura REST API explorer select “GET /ServerMeals”
     3. Press the “Try it out!” button
     4. Check for a response body that contains data and a Response Code of 200
+    
+Congratulations, you have successfully persisted data from an iOS app to a serverside Swift backend!
 
 **Add a Web Application to the Kitura server**
 1. Update the Kitura server application to save the received images to the local file system:
