@@ -160,7 +160,7 @@ Congratulations, you have successfully persisted data from an iOS app to a serve
             let publicDirectory = fileManager.currentDirectoryPath + "/public/"
             fileManager.createFile(atPath: publicDirectory + model.name + ".jpg", contents: photoData)
       ```
-    4. Add a `/public/jpeg.html` file containing: 
+    4. Create a `~/FoodTrackerBackend-Workshop/Server/FoodTrackerServer/public/jpeg.html` file containing just: 
     `<img src="Caprese Salad.jpg">`
     5. Re-build and run the server
    
