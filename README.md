@@ -139,7 +139,7 @@ open FoodTracker.xcworkspace
 **Run the FoodTracker app with storage to the Kitura server**
 1. Make sure the Kitura server is running
 Either by running  
-`~/FoodTrackerBackend-Workshop/Server/FoodTrackerServer/.build/debug/FoodTracker`  
+`~/FoodTrackerBackend-Workshop/Server/FoodTrackerServer/.build/debug/FoodTrackerServer`  
     or using the hosted instance in the IBM Cloud
 2. Open the Kitura monitoring dashboard (/swiftmetrics-dash)
 3. Launch the FoodTracker app and add or remove a Meal entry
