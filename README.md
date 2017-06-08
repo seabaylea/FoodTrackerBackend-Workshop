@@ -12,7 +12,7 @@
 `npm install -g generator-swiftserver`
 
 **Clone this project:**  
-1. Clone this project from GitHub to your machine:  
+1. Clone this project from GitHub to your machine (don't use the Download ZIP option):  
 ```
 cd ~
 git clone http://github.com/seabaylea/FoodTrackerBackend-Workshop
@@ -106,7 +106,7 @@ When you get to the final `Enter the property name:`, just tap Enter and your ne
     1. Open the project in Xcode:
 `open FoodTrackerServer.xcodeproj`
     2. Edit the scheme and select a Run Executable of “FoodTrackerServer”
-    3. Run the project, then Allow incoming network connections
+    3. Run the project, then "Allow incoming network connections" if you are prompted.
 
 5. Check the FoodTrackerServer URLs are running:
     * Kitura Homepage: http://localhost:8080
