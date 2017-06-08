@@ -44,7 +44,7 @@ yo swiftserver
 What's the name of your application? > FoodTrackerServer
 Enter the name of the directory to contain the project: FoodTrackerServer
 ```
-Select a type of project. Starter allows you to create general Basic, Web or Backend for Frontend project, including creating REST APIs, whereas a Create Read Update Delete (CRUD) project if designed to do data persistence. Select a CRUD application.
+Select a type of project. `Scaffold a starter` allows you to create a Basic, Web or Backend for Frontend project (including creating REST APIs) whereas `Generate a CRUD application` is designed to do data persistence. Select a CRUD application.
 ```
 Select type of project: 
   Scaffold a starter 
