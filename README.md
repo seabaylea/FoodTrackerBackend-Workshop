@@ -118,9 +118,9 @@ Enter an empty property name when done.
 
 
 **Update FoodTracker to call the FoodTrackerServer:**  
-In order for FoodTracker iOS application to save the Meal data to the server, calls to the server's REST APIs need to be made. This could be done via calls to URLSession, but in order to make it easier to create the correct data objects and API calls, ServerMeal and ServerMealAPI classes are provided. These are generated using the IBM Cloud SDK Generator but have already been embedded into the FoodTracker iOS application for this workshop.  
+In order for the FoodTracker iOS application to save the meal data to the server, calls to the server's REST APIs need to be made. This could be done using `URLSession`, but in order to make it easier to create the correct data objects and API calls, we have provided ServerMeal and ServerMealAPI classes. These were generated using the IBM Cloud SDK Generator and have already been embedded into the FoodTracker iOS application for this workshop.  
 
-As a result you only need to uncomment the code that invokes those APIs:
+As a result, you only need to uncomment the code that invokes those APIs:
 
 1. Open the FoodTracker app project:
 ```
