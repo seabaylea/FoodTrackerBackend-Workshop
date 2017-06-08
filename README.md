@@ -154,7 +154,7 @@ Congratulations, you have successfully persisted data from an iOS app to a serve
     2. Import Foundation:
     `import Foundation`
     3. Update the `handleCreate()` function to add the following after the `let model = try ServerMeal(json: json)` statement to save the images:
-      ```
+      ```swift
             let photoData = Data(base64Encoded: model.photo)
             let fileManager = FileManager.default
             let publicDirectory = fileManager.currentDirectoryPath + "/public/"
