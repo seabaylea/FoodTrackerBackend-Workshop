@@ -148,7 +148,7 @@ open FoodTracker.xcworkspace
     
 Congratulations, you have successfully persisted data from an iOS app to a serverside Swift backend!
 
-**Add a Web Application to the Kitura server**
+**Add a Web Application to the Kitura server (bonus content, if you have time)**
 1. Update the Kitura server application to save the received images to the local file system:
     1. Open the `Sources/Generated/ServerMealResource.swift` source file that contains the REST API routes
     2. Import Foundation:
