@@ -230,7 +230,6 @@ class MealTableViewController: UITableViewController {
 extension Meal {
     func asServerMeal() -> ServerMeal {
         let serverMeal = ServerMeal()
-        serverMeal.id = "1"
         serverMeal.name = self.name
         serverMeal.photo = UIImageJPEGRepresentation(self.photo!, 0)?.base64EncodedString()
         serverMeal.rating = Double(self.rating)
