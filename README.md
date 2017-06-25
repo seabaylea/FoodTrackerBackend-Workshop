@@ -164,7 +164,12 @@ Congratulations, you have successfully persisted data from an iOS app to a serve
       ```
     4. Create a `~/FoodTrackerBackend-Workshop/Server/FoodTrackerServer/public/jpeg.html` file containing just: 
     `<img src="Caprese Salad.jpg">`
-    5. Re-build and run the server
+    5. Re-build and run the server from the command line:
+    ```sh
+    swift build
+    ./.build/debug/FoodTrackerServer
+    ```
+    (this needs to be run from the command line as the fileManager code above assumes the server is being run on the root of the project)
    
 **Rerun the FoodTracker iOS App and view the Web App** 
 1. Run the iOS app in XCode and add or remove a Meal entry
