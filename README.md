@@ -9,7 +9,7 @@ For more information about Swift@IBM, visit https://developer.ibm.com/swift/
 1. Ensure that you have Node.js 8.0 installed:  
 `node —v` 
 2. If Node.js isn’t installed, you can download and install it:  
-`https://nodejs.org/download/release/v8.0.0/node-v8.0.0.pkg` 
+https://nodejs.org/download/release/v8.0.0/node-v8.0.0.pkg 
 3. Install Yeoman:  
 `npm install -g yo` 
 4. Install Swift Server Generator:  
