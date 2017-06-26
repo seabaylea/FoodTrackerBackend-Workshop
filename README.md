@@ -1,4 +1,8 @@
-## Building a Swift Backend for FoodTracker
+# Building a Swift Backend for FoodTracker
+
+This tutorial teaches how to create a Server-Side Swift backend for a simple iOS app.
+
+For more information about Swift@IBM, visit https://developer.ibm.com/swift/
 
 ### Pre-Requisites:
 **Install the Swift Server Generator:**  
