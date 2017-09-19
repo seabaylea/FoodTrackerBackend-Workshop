@@ -8,7 +8,8 @@
 
 import UIKit
 import os.log
-import Foundation
+// UNCOMMENT TO USE SWIFT BACKEND SERVER
+//import FoodTrackerServer_iOS_SDK
 
 class MealTableViewController: UITableViewController {
     
@@ -187,10 +188,11 @@ class MealTableViewController: UITableViewController {
     }
     
     private func saveMeals() {
-        // Additonal code to enable saving the Meal model data to the server
-        // for meal in meals {
-        //     saveToServer(meal: meal)
-        // }
+        /* // UNCOMMENT TO USE SWIFT BACKEND SERVER
+        for meal in meals {
+            saveToServer(meal: meal)
+        }
+        */
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(meals, toFile: Meal.ArchiveURL.path)
         if isSuccessfulSave {
             os_log("Meals successfully saved.", log: OSLog.default, type: .debug)
@@ -207,6 +209,7 @@ class MealTableViewController: UITableViewController {
      * Provide a function that calls the ServerMealAPI.serverMealCreate() API. The code is taken from
      * the documentation of the generated FoodTracker connector SDK.
      */
+    /* // UNCOMMENT TO USE SWIFT BACKEND SERVER
     private func saveToServer(meal: Meal) {
         ServerMealAPI.serverMealCreate(data: meal.asServerMeal()) { (returnedData, response, error) in
             guard error == nil else {
@@ -221,12 +224,14 @@ class MealTableViewController: UITableViewController {
             }
         }
     }
+    */
 
 }
 
 /*
  * Add an extension to the Meal model to conver the Meal types to the ServerMeal equivalents
  */
+/* // UNCOMMENT TO USE SWIFT BACKEND SERVER
 extension Meal {
     func asServerMeal() -> ServerMeal {
         let serverMeal = ServerMeal()
@@ -236,3 +241,4 @@ extension Meal {
         return serverMeal
     }
 }
+*/
