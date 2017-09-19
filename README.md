@@ -15,12 +15,17 @@ https://nodejs.org/download/release/v8.0.0/node-v8.0.0.pkg
 4. Install Swift Server Generator:  
 `npm install -g generator-swiftserver`
 
+**Ensure you have CocoaPods installed**  
+1. Install CocoaPods:
+`sudo gem install cocoapods`
+
+
 **Clone this project:**  
 1. Clone this project from GitHub to your machine (don't use the Download ZIP option):  
 ```
 cd ~
 git clone http://github.com/seabaylea/FoodTrackerBackend-Workshop
-cd ~/FoodTrackerBackend
+cd ~/FoodTrackerBackend-Workshop
 ```
 
 ## Getting Started
@@ -207,7 +212,7 @@ open FoodTracker.xcworkspace
         }
     }
     ```
-4. Edit the `Pods > Development Pods > FoodTrackerServer_iOS_SDK > Resources > Assets > FoodTrackerServer_iOS_SDK.plist` file to set the hostname and port for the FoodTrackerBackend server (in this case adding a port number of `8080`):
+4. Edit the `Pods > Development Pods > FoodTrackerServer_iOS_SDK > Resources > FoodTrackerServer_iOS_SDK.plist` file to set the hostname and port for the FoodTrackerBackend server (in this case adding a port number of `8080`):
 ```
 FoodTrackerServer_iOS_SDKHost = http://localhost:8080/api
 ```
