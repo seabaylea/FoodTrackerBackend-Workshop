@@ -1,6 +1,6 @@
 # Building a Swift Backend for FoodTracker
 
-This tutorial teaches how to create a Server-Side Swift backend for a simple iOS app.
+This tutorial teaches how to create a Server-Side Swift backend for the [FoodTracker iOS app tutorial](https://developer.apple.com/library/content/referencelibrary/GettingStarted/DevelopiOSAppsSwift/) from Apple.
 
 For more information about Swift@IBM, visit https://developer.ibm.com/swift/
 
@@ -20,7 +20,7 @@ https://nodejs.org/download/release/v8.0.0/node-v8.0.0.pkg
 ```
 cd ~
 git clone http://github.com/seabaylea/FoodTrackerBackend-Workshop
-cd ~/FoodTrackerBackend-Workshop
+cd ~/FoodTrackerBackend
 ```
 
 ## Getting Started
@@ -29,8 +29,8 @@ cd ~/FoodTrackerBackend-Workshop
 ```
 cd ~/FoodTrackerBackend-Workshop/iOS/FoodTracker
 ```
-2. Open the Xcode Workspace  
-`open FoodTracker.xcworkspace`
+2. Open the Xcode Project 
+`open FoodTracker.xcodeproj`
 3. Run the project to ensure that its working
     1. Hit the build and run button
     2. Add a meal in the Simulator
@@ -48,7 +48,7 @@ yo swiftserver
 What's the name of your application? > FoodTrackerServer
 Enter the name of the directory to contain the project: FoodTrackerServer
 ```
-Select a type of project. `Scaffold a starter` allows you to create a Basic, Web or Backend for Frontend project (including creating REST APIs) whereas `Generate a CRUD application` is designed to do data persistence. Select a CRUD application.
+Select a type of project. `Scaffold a starter` allows you to create a Basic, Web or Backend for Frontend project (including creating REST APIs) whereas `Generate a CRUD application` (Create, Read, Update, Delete) is designed to do data persistence. Select a CRUD application.
 ```
 Select type of project: 
   Scaffold a starter 
@@ -58,6 +58,11 @@ Select capabilities: (Press <space> to select, <a> to toggle all, <i> to inverse
  ◉ Docker files
  ◉ Bluemix cloud deployment
 ```
+Select whether you want to access other services using a Swift server SDK that's automatically generated from a Swagger definition for that service.
+```
+Service prompts
+? Would you like to generate a Swift server SDK from a Swagger file? (y/N) N
+```
 Select a datastore. For a production server you would want to persist data to a database, but for this workshop we'll use an in-memory datastore for ease of setup:  
 ```
 Select data store: 
@@ -66,6 +71,8 @@ Select data store:
 Generate boilerplate for Bluemix services: 
 ❯◉ Auto-scaling
 ```
+The Swift Server generator will now create and build an empty Kitura application for you with the characteristics you selected. As you are building a CRUD application, you now need to add a data model that it provides Create Read Update and Delete operations for.
+
 3. Add a data model to persist to the datastore
 ```
 cd ~/FoodTrackerBackend-Workshop/Server/FoodTrackerServer
@@ -106,10 +113,13 @@ Enter an empty property name when done.
 ```
 When you get to the final `Enter the property name:`, just tap Enter and your new model will be generated.
 
+This has created a full Kitura Server project that provides CRUD operations for the `ServerMeal` object. Additionally an iOS SDK called `FoodTrackerServer_iOS_SDK.zip` has automatically been created in the root directly of the project in order to make it easy to connect to the server from your application.
+
 4. Open and run the server project in Xcode
     1. Open the project in Xcode:
 `open FoodTrackerServer.xcodeproj`
     2. Edit the scheme and select a Run Executable of “FoodTrackerServer”
+    3. Make sure you are running a Swift 3.1 Toolchain in `Xcode > Toolchains`
     3. Run the project, then "Allow incoming network connections" if you are prompted.
 
 5. Check the FoodTrackerServer URLs are running:
@@ -122,25 +132,94 @@ When you get to the final `Enter the property name:`, just tap Enter and your ne
     2. Press the “Try it out!” button
     3. Check for an empty response body (“[]”) and a Response Code of 200. This tests that no meals have been saved to the server yet.
 
+**Install the iOS SDK into the FoodTracker iOS application:**  
+In order for the FoodTracker iOS application to save the meal data to the server, calls to the server's REST APIs need to be made. This could be done using `URLSession`, but in order to make it easier to create the correct data objects and API calls, the generated iOS SDK provides ServerMeal and ServerMealAPI classes. 
+1. Unzip the `FoodTrackerServer_iOS_SDK.zip` file:
+```
+cd ~/FoodTrackerBackend-Workshop
+unzip ~/FoodTrackerBackend-Workshop/Server/FoodTrackerServer/FoodTrackerServer_iOS_SDK.zip
+```
+2. Create a Podfile in the FoodTracker iOS application directory:
+```
+cd ~/FoodTrackerBackend-Workshop/iOS/FoodTracker/
+pod init
+```
+3. Edit the Podfile to use install the FoodTrackerServer SDK:
+```
+open Podfile
+```
+Under the "# Pods for FoodTracker" line add:
+```
+  # Pods for FoodTracker
+  pod 'FoodTrackerServer_iOS_SDK', :path => ‘~/FoodTrackerBackend-Workshop/FoodTrackerServer_iOS_SDK’
+  ```
+4. Install the iOS SDK:
+ ```
+ pod install
+ ```
 
 **Update FoodTracker to call the FoodTrackerServer:**  
-In order for the FoodTracker iOS application to save the meal data to the server, calls to the server's REST APIs need to be made. This could be done using `URLSession`, but in order to make it easier to create the correct data objects and API calls, we have provided ServerMeal and ServerMealAPI classes. These were generated using the IBM Cloud SDK Generator and have already been embedded into the FoodTracker iOS application for this workshop.  
+As the iOS SDK is installed as a Pod, the FoodTracker application now needs to be updated to call the provided APIs. The FoodTracker application provided already includes that code. As a result, you only need to uncomment the code that invokes those APIs:
 
-As a result, you only need to uncomment the code that invokes those APIs:
-
-1. Open the FoodTracker app project:
+1. If the FoodTracker iOS application is open in Xcode, close it.
+2. Open the FoodTracker applications Workspace (not project!):
 ```
 cd ~/FoodTrackerBackend-Workshop/iOS/FoodTracker/
 open FoodTracker.xcworkspace
 ```
-2. Edit MealTableViewController.swift
-    1. Uncomment the following at the start of the saveMeals() function:
-```swift
+3. Edit the `FoodTracker > MealTableViewController.swift` file:
+    1. Uncomment the import of `import FoodTrackerServer_iOS_SDK`
+    ```swift
+    import FoodTrackerServer_iOS_SDK
+    ```
+    2. Uncomment the following at the start of the saveMeals() function:
+    ```swift
             for meal in meals {
                   saveToServer(meal: meal)
               }
+    ```
+    3. Uncomment the following `saveToServer(meal:)` function towards the end of the file:
+    ```swift
+    private func saveToServer(meal: Meal) {
+        ServerMealAPI.serverMealCreate(data: meal.asServerMeal()) { (returnedData, response, error) in
+            guard error == nil else {
+                print(error!)
+                return
+            }
+            if let result = returnedData {
+                print(result)
+            }
+            if let status = response?.statusCode {
+                print("ServerMealAPI.serverMealCreate() finished with status code: \(status)")
+            }
+        }
+    }
+    ```
+    4. Uncomment the following `asServerMeal()` extension to `Meal` at the end of the file:
+    ```swift
+    extension Meal {
+        func asServerMeal() -> ServerMeal {
+            let serverMeal = ServerMeal()
+            serverMeal.name = self.name
+            serverMeal.photo = UIImageJPEGRepresentation(self.photo!, 0)?.base64EncodedString()
+            serverMeal.rating = Double(self.rating)
+            return serverMeal
+        }
+    }
+    ```
+4. Edit the `Pods > Development Pods > FoodTrackerServer_iOS_SDK > Resources > Assets > FoodTrackerServer_iOS_SDK.plist` file to set the hostname and port for the FoodTrackerBackend server (in this case adding a port number of `8080`):
 ```
-
+FoodTrackerServer_iOS_SDKHost = http://localhost:8080/api
+```
+5. Update the FoodTracker applications `FoodTracker > Info.plist` file to allow loads from a server:
+**note** this step has been done already:
+```
+    <key>NSAppTransportSecurity</key>
+	<dict>
+	    <key>NSAllowsArbitraryLoads</key>
+        	<true/>
+	</dict>
+```
 
 **Run the FoodTracker app with storage to the Kitura server**
 1. Make sure the Kitura server is still running and you have the Kitura monitoring dashboard open in your browser (http://localhost:8080/swiftmetrics-dash)
@@ -160,20 +239,17 @@ Congratulations, you have successfully persisted data from an iOS app to a serve
     2. Import Foundation:
     `import Foundation`
     3. Update the `handleCreate()` function to add the following after the `let model = try ServerMeal(json: json)` statement to save the images:
+    **note:** `<USER_NAME>` should be substituted with your user name
       ```swift
             let photoData = Data(base64Encoded: model.photo)
             let fileManager = FileManager.default
-            let publicDirectory = fileManager.currentDirectoryPath + "/public/"
+            let publicDirectory = "/Users/<USER_NAME>/FoodTrackerBackend-Workshop/Server/FoodTrackerServer/public/"
             fileManager.createFile(atPath: publicDirectory + model.name + ".jpg", contents: photoData)
       ```
     4. Create a `~/FoodTrackerBackend-Workshop/Server/FoodTrackerServer/public/jpeg.html` file containing just: 
     `<img src="Caprese Salad.jpg">`
-    5. Re-build and run the server from the command line:
-    ```sh
-    swift build
-    ./.build/debug/FoodTrackerServer
-    ```
-    (this needs to be run from the command line as the fileManager code above assumes the server is being run on the root of the project)
+    5. Re-build and run the server
+
    
 **Rerun the FoodTracker iOS App and view the Web App** 
 1. Run the iOS app in XCode and add or remove a Meal entry
