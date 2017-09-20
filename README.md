@@ -5,6 +5,8 @@ This tutorial teaches how to create a Server-Side Swift backend for the [FoodTra
 For more information about Swift@IBM, visit https://developer.ibm.com/swift/
 
 ### Pre-Requisites:
+**Note:** This workshop has been developed for Swift 3.1 and Xcode 8.x.
+
 **Install the Swift Server Generator:**  
 1. Ensure that you have Node.js 8.0 installed:  
 `node —v` 
