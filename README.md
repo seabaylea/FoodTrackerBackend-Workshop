@@ -76,7 +76,7 @@ Select data store:
 ❯ Memory (for development purposes) 
   Cloudant / CouchDB
 Generate boilerplate for Bluemix services: 
-❯◉ Auto-scaling
+❯◯ Auto-scaling
 ```
 The Swift Server generator will now create and build an empty Kitura application for you with the characteristics you selected. As you are building a CRUD application, you now need to add a data model that it provides Create Read Update and Delete operations for.
 
@@ -121,6 +121,8 @@ Enter an empty property name when done.
 When you get to the final `Enter the property name:`, just tap Enter and your new model will be generated.
 
 This has created a full Kitura Server project that provides CRUD operations for the `ServerMeal` object. Additionally an iOS SDK called `FoodTrackerServer_iOS_SDK.zip` has automatically been created in the root directly of the project in order to make it easy to connect to the server from your application.
+
+Click here for a [detailed description of the contents](ProjectContents.md) of the project.
 
 4. Open and run the server project in Xcode
     1. Open the project in Xcode:
@@ -262,3 +264,6 @@ Congratulations, you have successfully persisted data from an iOS app to a serve
 1. Run the iOS app in XCode and add or remove a Meal entry
 2. Visit the web application at to see the saved image:
 `http://localhost:8080/jpeg.html`
+
+## Next Steps
+If you have sufficient time, you can optionally try [Step 2: Deploying to IBM Cloud](2-CloudDeploy.md)
