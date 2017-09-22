@@ -27,20 +27,23 @@ There are two main methods to deploying your application to IBM Cloud:
 
 ### Option 1: IBM Developer Tools (IDT)
 1. Go to the root directory of your FoodTrackerServer project
+```
+cd ~/FoodTrackerBackend-Workshop/Server/FoodTrackerServer/
+```
 2. Log in to IBM Cloud  
 
-    ```
-    bluemix api https://api.ng.bluemix.net
-    bluemix login
-    bluemix target -o <YOUR_EMAIL> -s dev
-    ```
+```
+bluemix api https://api.ng.bluemix.net
+bluemix login
+bluemix target -o <YOUR_EMAIL> -s dev
+```
 where `YOUR_EMAIL` is the email address you used when signing up to IBM Cloud.  
-3. Build and deploy your project
+3. Build and deploy your project  
 
-    ```
-    idt build
-    idt deploy
-    ```
+```
+idt build  
+idt deploy
+```  
 
 4. Copy and paste the URL for your deployed app into the browser to check that your server is running.
 
@@ -60,13 +63,17 @@ In order to use the IBM Cloud DevOps pipelines to build, test and deploy your pr
 
 #### Create a Local Git Project
 1. Go to the root directory of your FoodTrackerServer project
-2. Initialise a local git project
+
+```
+cd ~/FoodTrackerBackend-Workshop/Server/FoodTrackerServer/
+```
+2. Initialise a local git project  
 `git init`
-3. Add all your files to the project
+3. Add all your files to the project  
 `git add -A`
-4. Check those file in by as a "commit"
+4. Check those file in by as a "commit"  
 `git commit -m "Initial commit"` 
-6. Push the commit to GitHub
+6. Push the commit to GitHub  
 Use the two lines under "…or push an existing repository from the command line" from the page dispalyed when you created your GitHub page.
 
 7. Reload the GitHub project page
